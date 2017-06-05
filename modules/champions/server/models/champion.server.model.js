@@ -23,6 +23,9 @@ var ChampionSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  price:{
+    type: String
   }
 });
 
