@@ -3,9 +3,7 @@
     <h1>Champions</h1>
   </div>
   <div class="list-group">
-    <a ng-repeat="champion in vm.champions"
-       ui-sref="champions.view({ championId: champion._id })"
-       class="list-group-item">
+    <a ng-repeat="champion in vm.champions" ui-sref="champions.view({ championId: champion._id })" class="list-group-item">
       <small class="list-group-item-text">
         Posted on
         <span ng-bind="champion.created | date:'mediumDate'"></span>
@@ -13,7 +11,9 @@
         <span ng-if="champion.user" ng-bind="champion.user.displayName"></span>
         <span ng-if="!champion.user">Deleted User</span>
       </small>
+      <img ng-src="/modules/champions/client//img/rt435.jpg">
       <h4 class="list-group-item-heading" ng-bind="champion.name"></h4>
+      <h4 class="list-group-item-Price" ng-bind="champion.price"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.champions.$resolved && !vm.champions.length">
