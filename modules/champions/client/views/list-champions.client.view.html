@@ -2,21 +2,17 @@
   <div class="page-header">
     <h1>Champions</h1>
   </div>
-  <div class="list-group">
-    <a ng-repeat="champion in vm.champions" ui-sref="champions.view({ championId: champion._id })" class="list-group-item">
+    <div class="row" ng-repeat="champion in vm.champions"  ng-if="($index+1) % 4 == 0" >
+    <a ng-repeat="champion in vm.champions" ui-sref="champions.view({ championId: champion._id })" class="col-md-3">
       <small class="list-group-item-text">
         Posted on
         <span ng-bind="champion.created | date:'mediumDate'"></span>
         by
         <span ng-if="champion.user" ng-bind="champion.user.displayName"></span>
-        <span ng-if="!champion.user">Deleted User</span>
       </small>
-      <img ng-src="/modules/champions/client//img/rt435.jpg">
+      <img ng-src="/modules/champions/client//img/rt435.jpg" height="150" width="90">
       <h4 class="list-group-item-heading" ng-bind="champion.name"></h4>
       <h4 class="list-group-item-Price" ng-bind="champion.price"></h4>
     </a>
-  </div>
-  <div class="alert alert-warning text-center" ng-if="vm.champions.$resolved && !vm.champions.length">
-    No Champions yet, why don't you <a ui-sref="champions.create">create one</a>?
-  </div>
+    </div>
 </section>
