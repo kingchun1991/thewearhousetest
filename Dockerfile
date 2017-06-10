@@ -29,4 +29,4 @@ ENV NODE_ENV development
 # Port 3000 for server
 # Port 35729 for livereload
 EXPOSE 8080 35729
-CMD ["grunt"]
+CMD ["grunt --development"]
