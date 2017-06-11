@@ -3,7 +3,7 @@ FROM node:0.12
 # Install gem sass for  grunt-contrib-sass
 RUN apt-get update -qq && apt-get install -y build-essential
 RUN apt-get install -y ruby
-sudo apt-get install nodejs-legacy
+RUN apt-get install nodejs-legacy
 RUN gem install sass
 
 WORKDIR /home/mean
