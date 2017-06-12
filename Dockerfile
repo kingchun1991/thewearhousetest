@@ -1,4 +1,4 @@
-FROM node:0.12
+FROM google/nodejs
 
 # Install gem sass for  grunt-contrib-sass
 RUN apt-get update -qq && apt-get install -y build-essential
@@ -17,8 +17,8 @@ ADD package.json /home/mean/package.json
 RUN npm install
 
 # Manually trigger bower. Why doesnt this work via npm install?
-ADD .bowerrc /home/mean/.bowerrc
-ADD bower.json /home/mean/bower.json
+# ADD .bowerrc /home/mean/.bowerrc
+# ADD bower.json /home/mean/bower.json
 RUN bower install --config.interactive=false --allow-root
 
 # Make everything available for start
