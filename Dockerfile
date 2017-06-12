@@ -2,6 +2,8 @@ FROM google/nodejs
 
 # Install gem sass for  grunt-contrib-sass
 RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get install libssl-dev -y
 RUN apt-get install -y ruby
 RUN apt-get install nodejs-legacy -y
 RUN gem install sass
