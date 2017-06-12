@@ -13,9 +13,11 @@ WORKDIR /home/mean
 # Install Mean.JS Prerequisites
 RUN npm install -g grunt-cli
 RUN npm install -g bower
+RUN npm install -g load-grunt-tasks
 
 # Install Mean.JS packages
-ADD package.json /home/mean/package.json
+COPY package.json /home/mean/package.json
+RUN npm cache clean
 RUN npm install
 RUN npm install load-grunt-tasks
 
