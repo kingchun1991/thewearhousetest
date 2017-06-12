@@ -17,8 +17,7 @@ RUN npm install -g load-grunt-tasks
 
 # Install Mean.JS packages
 COPY package.json /home/mean/package.json
-RUN npm cache clean
-RUN npm install
+RUN npm install --quiet && npm cache clean
 RUN npm install load-grunt-tasks
 
 # Manually trigger bower. Why doesnt this work via npm install?
@@ -27,7 +26,7 @@ ADD bower.json /home/mean/bower.json
 RUN bower install --config.interactive=false --allow-root
 
 # Make everything available for start
-ADD . /home/mean
+COPY . /home/mean
 
 # Set development environment as default
 ENV NODE_ENV development
