@@ -18,7 +18,7 @@ RUN npm install -g load-grunt-tasks
 # Install Mean.JS packages
 COPY package.json /home/mean/package.json
 RUN npm install --quiet && npm cache clean
-RUN npm install load-grunt-tasks
+RUN npm install -D load-grunt-config
 
 # Manually trigger bower. Why doesnt this work via npm install?
 ADD .bowerrc /home/mean/.bowerrc
